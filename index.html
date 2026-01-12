@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game • RetroJS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <main class="game-frame">
+
+        <!-- HUD GLOBAL -->
+        <header class="hud">
+            <span>⚔️ RETROJS</span>
+            <span>❤️ RPG BATTLE</span>
+        </header>
+
+        <!-- MENU -->
+        <section class="screen menu active" id="menu">
+            <h1 class="title">MINI GAME RETROJS</h1>
+
+            <input 
+                type="text" 
+                id="nomeHeroi" 
+                placeholder="Digite o nome do herói" 
+                autocomplete="off"
+            />
+
+            <select id="tipoHeroi">
+                <option value="">CLASSE</option>
+                <option value="guerreiro">GUERREIRO</option>
+                <option value="mago">MAGO</option>
+                <option value="monge">MONGE</option>
+                <option value="ninja">NINJA</option>
+            </select>
+
+            <button id="btnIniciar">START GAME</button>
+        </section>
+
+        <!-- BATALHA -->
+        <section class="screen battle" id="battle">
+            <div class="arena">
+
+                <!-- HERO -->
+                <div class="character">
+                    <div id="heroName" class="character-name"></div>
+                    <div id="heroSprite" class="sprite"></div>
+
+                    <div class="life-bar">
+                        <div id="heroLife" class="life"></div>
+                    </div>
+                </div>
+
+                <!-- ENEMY -->
+                <div class="character">
+                    <div id="enemyName" class="character-name"></div>
+                    <div id="enemySprite" class="sprite"></div>
+                    
+                    <div class="life-bar">
+                        <div id="enemyLife" class="life"></div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- ATAQUE -->
+            <div id="attackOptions" class="attack-options"></div>
+
+            <!-- LOG BATALHA -->
+            <div id="mensagem" class="battle-log"></div>
+        
+        </section>
+
+        <!-- RESULTADO -->
+        <section class="screen result" id="result">
+            <h2 id="resultadoFinal"></h2>
+            <button id="btnReiniciar">RETURN TO MENU</button>
+        </section>
+    
+        <!-- FOOTER -->
+        <footer class="footer">
+            © 2026 • Developed by Lucas Santos
+        </footer>
+    
+    </main> 
+
+    <!-- ENGINE -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>

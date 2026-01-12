@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', monospace;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #00ff88 0%, transparent 40%),
+        linear-gradient(180deg, #000000, #001a0f, #000000);
+    background-size: cover;
+    color: #f5f1c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* GAME FRAME */
+.game-frame {
+    width: 420px;
+    background: #0b0f0c;
+    border: 6px solid #fdd835;
+    box-shadow:
+        0 0 0 4px #000,
+        0 0 20px rgba(0, 255, 136, 0.4);
+    padding: 12px;
+}
+
+/* HUD */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #003320, #001a0f);
+    padding: 8px;
+    border: 2px solid #00ff88;
+    margin-bottom: 10px;
+    font-size: 10px;
+    color: #00ff88;
+}
+
+/* SCREENS */
+.screen {
+    display: none;
+    text-align: center;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* TITLE */
+.title {
+    color: #fdd835;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #000;
+    color: #f5f1c9;
+    border: 3px solid #00ff88;
+    text-align: center;
+}
+
+/* BUTTONS */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #fdd835;
+    border: 3px solid #000;
+    cursor: pointer;
+    color: #000;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+/* ARENA */
+.arena {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.character {
+    width: 45%;
+    text-align: center;
+}
+
+.sprite {
+    font-size: 40px;
+    margin-bottom: 6px;
+}
+
+/* LIFE BAR */
+.life-bar {
+    background: #400;
+    border: 2px solid #fff;
+    height: 12px;
+}
+
+.life {
+    background: #0f0;
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+/* BATTLE LOG */
+.battle-log {
+    background: #000;
+    border: 3px solid #c8a951;
+    padding: 10px;
+    height: 220px;
+    overflow-y: auto;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* RESULT */
+.result h2 {
+    color: #fdd835;
+    margin-bottom: 20px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    font-size: 8px;
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.attack-options {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.attack-options button {
+    flex: 1;
+    font-size: 8px;
+    padding: 8px;
+}
+
+.character-name {
+    font-size: 10px;
+    margin-bottom: 6px;
+    color: #00ff88;
+    text-shadow: 0 0 6px rgba(0, 255, 135, 0.6)
+}
