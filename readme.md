@@ -14,25 +14,25 @@ A RetroJS Engine foi projetada para rodar **100% no navegador**, sem dependênci
 - 📦 100% JavaScript moderno (ES Modules)
 
 
-## 🗺️ Diagrama Arquitetural
+## 🗺️ Arquitetura Estrutural do Projeto
 
-![](img/DiagramaRetroEngine0.png)
+![](img/EstruturaProjeto.png)
 
 ## 📁 Estrutura do Projeto
 
 ```
 /engine
- ├─ core.js        # Loop principal do jogo
- ├─ state.js       # Gerenciamento de estados
- ├─ entity.js      # Entidade base
  ├─ character.js   # Personagens jogáveis
+ ├─ entity.js      # Entidade base (vida, ataque, estado)
  ├─ factory.js     # Factory de personagens
- ├─ ui.js          # Interface e HUD
- └─ game.js        # Orquestração do jogo
+ ├─ game.js        # Orquestração central do jogo
+ ├─ loader.js      # loading/boot
+ ├─ state.js       # estados global
+ └─ ui.js          # Interface, HUD e renderização
 
-/menu.js           # Controle do menu
+/main.js           # Entry point e controle do menu
 /style.css         # Estilo retrô NES
-/index.html        # Entry point
+/index.html        # HTML declarativo (sem lógica)
 ```
 
 
@@ -65,9 +65,9 @@ http://localhost:3000
 
 ## 🛠️ Tecnologias Utilizadas
 
-- JavaScript
-- HTML5
-- CSS3
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff)
+- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff)
 - Web APIs nativas
 
 ## 🌐 Compatibilidade de Navegadores
@@ -85,9 +85,11 @@ http://localhost:3000
 
 MIT License — livre para estudo, modificação e uso comercial.
 
-## 👨‍💻 Desenvolvedor
+## 👨‍💻 Autor
 
-Me chamo Lucas Santos, este projeto foi um desafio de um amigo de curso, desenvolvido inteiramente com hands-on e base lógica de programação com Javascript, Neste sentido torno publico e retutilizavel minhas linhas de código afim de contribuir e tornar a comunidade Dev maior e mais colaborativa.
+Me chamo Lucas Santos, este projeto foi um desafio de um amigo de curso, com o objetivo principal de demonstrar design arquitetural frontend, organização de engine e fluxo de estados, desenvolvendo habilidades hands-on e base lógica de programação com Javascript.     
+
+Desenvolvedor • JavaScript • Arquitetura de Software
 
 Conecte-se comigo:       
 [LinkedIn](https://www.linkedin.com/in/lucasglsantos/)

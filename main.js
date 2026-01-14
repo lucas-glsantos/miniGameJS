@@ -1,25 +1,33 @@
 import { Game } from "./engine/game.js";
-import { UI } from "./engine/ui.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    UI.init();
+// -------- BOOT --------
+Game.boot();
 
-    const btnStart = document.getElementById("btnIniciar");
-    const btnRestart = document.getElementById("btnReiniciar");
+// Elements
+const btnIniciar = document.getElementById("btnIniciar");
+const btnReiniciar = document.getElementById("btnReiniciar");
 
-    btnStart.addEventListener("click", () => {
-        const name = document.getElementById("nomeHeroi").value.trim();
-        const type = document.getElementById("tipoHeroi").value;
-    
-        if (!name || !type) {
-        alert("Preencha nome e classe");
+const inputNome = document.getElementById("nomeHeroi");
+const selectTipo = document.getElementById("tipoHeroi");
+
+// Menu -> StartGame
+btnIniciar.addEventListener("click", () => {
+    const nome = inputNome.value.trim();
+    const tipo = selectTipo.value;
+
+    if (!nome || !tipo) {
+        alert("Digite o nome do herói e escolha uma classe.");
         return;
     }
 
-    Game.start(name, type);
-    });
+    Game.start(nome, tipo);
+});
 
-    btnRestart.addEventListener("click", () => {
-        location.reload();
-    });
+// Result -> ReturnToMenu
+btnReiniciar.addEventListener("click", () => {
+    // Limpa inputs para nova partida
+    inputNome.value = "",
+    selectTipo.value = "";
+
+    Game.returnToMenu();
 });

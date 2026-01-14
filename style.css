@@ -1,3 +1,4 @@
+/* RESET / BASE */
 * {
     box-sizing: border-box;
     font-family: 'Press Start 2P', monospace;
@@ -41,21 +42,61 @@ body {
 /* SCREENS */
 .screen {
     display: none;
-    text-align: center;
 }
 
 .screen.active {
     display: block;
 }
 
+/* LOADING */
+.screen.loading.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #0f0;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* TITLE */
 .title {
-    color: #fdd835;
     margin-bottom: 20px;
+    text-align: center;
+
+    color: transparent;
+    background: linear-gradient(
+        180deg,
+        #fff6b0 0%,
+        #fdd835 40%,
+        #c8a951 70%,
+        #8d6e00 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    text-shadow:
+        0 0 4px rgba(255, 215, 0, 0.6),
+        0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 /* INPUTS */
-input, select {
+input,
+select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -79,6 +120,11 @@ button:hover {
     filter: brightness(1.1);
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* ARENA */
 .arena {
     display: flex;
@@ -91,6 +137,13 @@ button:hover {
     text-align: center;
 }
 
+.character-name {
+    font-size: 10px;
+    margin-bottom: 6px;
+    color: #00ff88;
+    text-shadow: 0 0 6px rgba(0, 255, 135, 0.6);
+}
+
 .sprite {
     font-size: 40px;
     margin-bottom: 6px;
@@ -101,6 +154,7 @@ button:hover {
     background: #400;
     border: 2px solid #fff;
     height: 12px;
+    overflow: hidden;
 }
 
 .life {
@@ -108,6 +162,19 @@ button:hover {
     height: 100%;
     width: 100%;
     transition: width 0.3s ease;
+}
+
+/* ATTACK OPTIONS */
+.attack-options {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.attack-options button {
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 /* BATTLE LOG */
@@ -125,6 +192,7 @@ button:hover {
 .result h2 {
     color: #fdd835;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* FOOTER */
@@ -135,22 +203,19 @@ button:hover {
     color: #aaa;
 }
 
-.attack-options {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    margin-top: 10px;
+/* Enemy turn: disable attacks */
+body.enemy-turn .attack-options button {
+    pointer-events: none;
+    opacity: 0.4;
+    filter: grayscale(1);
 }
 
-.attack-options button {
-    flex: 1;
-    font-size: 8px;
-    padding: 8px;
+/* Player turn: enable attacks */
+body.player-turn .attack-options button {
+    pointer-events: auto;
+    opacity: 1;
 }
 
-.character-name {
-    font-size: 10px;
-    margin-bottom: 6px;
-    color: #00ff88;
-    text-shadow: 0 0 6px rgba(0, 255, 135, 0.6)
+body.enemy-turn {
+    cursor: wait;
 }

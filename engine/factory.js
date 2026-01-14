@@ -50,17 +50,16 @@ export class CharacterFactory {
 
     static create(name, type) {
         const cfg = this.config[type];
-
         if (!cfg) {
             throw new Error(`Unknow character type: ${type}`)
         }
     
-    
         return new Character({ 
             name, 
             type,
-            life: cfg.life,
-            attack: cfg.sprite,
+            maxLife: cfg.life,
+            attackBase: cfg.attack,
+            sprite: cfg.sprite,
             attacks: cfg.attacks
         });
     }
